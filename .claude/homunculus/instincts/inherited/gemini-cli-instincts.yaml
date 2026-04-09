@@ -1,0 +1,796 @@
+# Instincts generated from https://github.com/zhimin-z/gemini-cli
+# Generated: 2026-03-31T08:50:34.016Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: gemini-cli-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, refactor, test, docs
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix(core): enable mid-stream retries for all models and re-enable compression test (#24302), feat(plan): support `Plan` mode in untrusted folders (#17586)
+
+---
+id: gemini-cli-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Commit Length
+
+## Action
+
+Write moderate-length commit messages (~67 characters)
+
+## Evidence
+
+- Average commit message length: 67 chars
+- Based on 200 commits
+
+---
+id: gemini-cli-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: gemini-cli-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: gemini-cli-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: gemini-cli-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: gemini-cli-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: gemini-cli-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: gemini-cli-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Test Mocking
+
+## Action
+
+Use msw for mocking
+
+## Evidence
+
+- Mocking pattern detected: msw
+- Consistent across test files
+
+---
+id: gemini-cli-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: yes
+
+---
+id: gemini-cli-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~11x per month
+- Files: packages/cli/src/ui/*, packages/cli/src/ui/hooks/*, packages/cli/src/utils/*
+
+---
+id: gemini-cli-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/**/*
+
+---
+id: gemini-cli-workflow-add-or-update-core-feature
+trigger: "when doing add or update core feature"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Add Or Update Core Feature
+
+## Action
+
+Follow the add-or-update-core-feature workflow:
+1. Edit or create implementation files in packages/core/src or packages/cli/src
+2. Update or add corresponding config files (e.g., config.ts, settingsSchema.ts)
+3. Add or update test files (*.test.ts, *.test.tsx)
+4. Update documentation if needed (docs/cli/settings.md, docs/reference/configuration.md)
+5. Update schema files if configuration is involved (schemas/settings.schema.json)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: packages/core/src/config/config.ts, packages/core/src/services/*.ts, packages/core/src/tools/*.ts
+
+---
+id: gemini-cli-workflow-add-or-update-tool
+trigger: "when doing add or update tool"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Add Or Update Tool
+
+## Action
+
+Follow the add-or-update-tool workflow:
+1. Edit or create tool implementation file in packages/core/src/tools/
+2. Update or add tool declaration in packages/core/src/tools/definitions/
+3. Update or add tool registry or tool-names files if registering a new tool
+4. Add or update test files for the tool (*.test.ts)
+5. Update base-declarations or model-family-sets if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: packages/core/src/tools/*.ts, packages/core/src/tools/*.test.ts, packages/core/src/tools/definitions/*.ts
+
+---
+id: gemini-cli-workflow-config-schema-update
+trigger: "when doing config schema update"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Config Schema Update
+
+## Action
+
+Follow the config-schema-update workflow:
+1. Edit settings schema (schemas/settings.schema.json)
+2. Update config files (packages/cli/src/config/settingsSchema.ts, packages/core/src/config/config.ts)
+3. Update documentation (docs/cli/settings.md, docs/reference/configuration.md)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: schemas/settings.schema.json, packages/cli/src/config/settingsSchema.ts, packages/core/src/config/config.ts
+
+---
+id: gemini-cli-workflow-feature-with-tests-and-docs
+trigger: "when doing feature with tests and docs"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Feature With Tests And Docs
+
+## Action
+
+Follow the feature-with-tests-and-docs workflow:
+1. Implement the feature in source files
+2. Add or update test files (*.test.ts, *.test.tsx)
+3. Update documentation files to describe the new feature
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: packages/cli/src/ui/components/*.tsx, packages/cli/src/ui/hooks/*.ts, packages/core/src/services/*.ts
+
+---
+id: gemini-cli-workflow-changelog-update
+trigger: "when doing changelog update"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Changelog Update
+
+## Action
+
+Follow the changelog-update workflow:
+1. Edit the appropriate changelog file (docs/changelogs/latest.md or docs/changelogs/preview.md)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: docs/changelogs/latest.md, docs/changelogs/preview.md
+
+---
+id: gemini-cli-workflow-bugfix-with-test
+trigger: "when doing bugfix with test"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/gemini-cli
+---
+
+# Gemini Cli Workflow Bugfix With Test
+
+## Action
+
+Follow the bugfix-with-test workflow:
+1. Edit the source file to fix the bug
+2. Edit or add a test file (*.test.ts, *.test.tsx) to cover the bug scenario
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: packages/core/src/**/*.ts, packages/cli/src/**/*.tsx, packages/core/src/**/*.test.ts
+
+---
+id: gemini-cli-instinct-file-naming
+trigger: "When creating or renaming a file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct File Naming
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Observed in packages/cli/src/ui/AppContainer.tsx
+
+---
+id: gemini-cli-instinct-function-naming
+trigger: "When writing a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Seen in packages/cli/src/ui/hooks/useSessionBrowser.ts
+
+---
+id: gemini-cli-instinct-class-naming
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes
+- Seen in packages/cli/src/ui/AppContainer.tsx
+
+---
+id: gemini-cli-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: gemini-cli-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+- Seen in packages/cli/src/ui/hooks/useSessionBrowser.ts
+
+---
+id: gemini-cli-instinct-export-style
+trigger: "When exporting modules"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Export Style
+
+## Action
+
+Use mixed exports (default and named) as appropriate
+
+## Evidence
+
+- Pattern in exportStyle: mixed
+
+---
+id: gemini-cli-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Test File Pattern
+
+## Action
+
+Name the file with a .test.ts or .test.tsx suffix
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Seen in packages/core/src/utils/sessionCleanup.test.ts
+
+---
+id: gemini-cli-instinct-test-framework
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Test Framework
+
+## Action
+
+Use the Vitest framework
+
+## Evidence
+
+- Pattern in testing.framework
+- Presence of vitest.config.ts in multiple packages
+
+---
+id: gemini-cli-instinct-test-types
+trigger: "When designing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Test Types
+
+## Action
+
+Include both unit and integration tests as needed
+
+## Evidence
+
+- Pattern in testing.testTypes
+- Folders: integration-tests, *.test.ts files
+
+---
+id: gemini-cli-instinct-mocking
+trigger: "When mocking APIs in tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Mocking
+
+## Action
+
+Use msw (Mock Service Worker) for mocking
+
+## Evidence
+
+- Pattern in testing.mockingStyle
+
+---
+id: gemini-cli-instinct-coverage
+trigger: "When configuring tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Coverage
+
+## Action
+
+Enable coverage reporting in Vitest
+
+## Evidence
+
+- Pattern in testing.coverageConfig: true
+- Presence of vitest.config.ts
+
+---
+id: gemini-cli-instinct-git-commit-format
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Git Commit Format
+
+## Action
+
+Use Conventional Commits format: <type>(<scope>): <description>
+
+## Evidence
+
+- Pattern in commits.type: conventional
+- Examples: fix(core): enable mid-stream retries...
+
+---
+id: gemini-cli-instinct-git-commit-prefixes
+trigger: "When choosing a commit type"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Git Commit Prefixes
+
+## Action
+
+Use one of: fix, feat, refactor, test, docs, chore
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: fix(core):..., feat(plan):..., chore(test-utils):...
+
+---
+id: gemini-cli-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Git Commit Length
+
+## Action
+
+Keep the commit subject around 67 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 67
+
+---
+id: gemini-cli-instinct-add-or-update-core-feature
+trigger: "When adding or updating a core feature in CLI or core package"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Add Or Update Core Feature
+
+## Action
+
+Edit/create implementation, update config, add/update tests, update docs, and schema if config is involved
+
+## Evidence
+
+- Workflow: add-or-update-core-feature
+- Seen in commits like feat(core): add project-level memory scope...
+
+---
+id: gemini-cli-instinct-add-or-update-tool
+trigger: "When adding or updating a tool in core"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Add Or Update Tool
+
+## Action
+
+Edit/create tool implementation, update declarations/registry, add/update tests, update base-declarations/model-family-sets if needed
+
+## Evidence
+
+- Workflow: add-or-update-tool
+- Pattern in files: packages/core/src/tools/*.ts, *.test.ts
+
+---
+id: gemini-cli-instinct-config-schema-update
+trigger: "When adding or changing a configuration option"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Config Schema Update
+
+## Action
+
+Edit schemas/settings.schema.json, update config files, update related documentation
+
+## Evidence
+
+- Workflow: config-schema-update
+- Pattern in files: schemas/settings.schema.json, docs/cli/settings.md
+
+---
+id: gemini-cli-instinct-feature-with-tests-and-docs
+trigger: "When adding a new user-facing feature or enhancement"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Feature With Tests And Docs
+
+## Action
+
+Implement feature, add/update tests, update documentation
+
+## Evidence
+
+- Workflow: feature-with-tests-and-docs
+- Pattern in files: packages/cli/src/ui/components/*.tsx, docs/cli/settings.md
+
+---
+id: gemini-cli-instinct-changelog-update
+trigger: "When publishing a new release or preview version"
+confidence: 1
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Changelog Update
+
+## Action
+
+Edit docs/changelogs/latest.md or docs/changelogs/preview.md
+
+## Evidence
+
+- Workflow: changelog-update
+- Seen in commits: Changelog for v0.35.3 (#24083)
+
+---
+id: gemini-cli-instinct-bugfix-with-test
+trigger: "When fixing a bug"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/gemini-cli
+---
+
+# Gemini Cli Instinct Bugfix With Test
+
+## Action
+
+Edit the source file to fix the bug and add or update a test to cover it
+
+## Evidence
+
+- Workflow: bugfix-with-test
+- Pattern in files: packages/core/src/**/*.ts, *.test.ts
+
